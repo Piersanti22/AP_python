@@ -1,0 +1,26 @@
+\begin{thebibliography}{1}
+
+\bibitem{quarteroni2019}
+A.~Quarteroni, L.~Ded{\`e}, A.~Manzoni, and C.~Vergara.
+\newblock {\em {Mathematical Modelling of the Human Cardiovascular System:
+  Data, Numerical Approximation, Clinical Applications}}.
+\newblock Cambridge University Press, 2019.
+
+\bibitem{franzone2014mathematical}
+P.C. Franzone, L.F. Pavarino, and S.~Scacchi.
+\newblock {\em Mathematical Cardiac Electrophysiology}, volume~13.
+\newblock Springer, 2014.
+
+\bibitem{aliev1996simple}
+R.R. Aliev and A.V. Panfilov.
+\newblock A simple two-variable model of cardiac excitation.
+\newblock {\em Chaos, Solitons \& Fractals}, 7:293--301, 1996.
+
+\bibitem{courtemanche1998ionic}
+M.~Courtemanche, R.J. Ramirez, and S.~Nattel.
+\newblock Ionic mechanisms underlying human atrial action potential properties:
+  insights from a mathematical model.
+\newblock {\em American Journal of Physiology-Heart and Circulatory
+  Physiology}, 275:H301--H321, 1998.
+
+\end{thebibliography}
