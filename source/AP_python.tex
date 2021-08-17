@@ -104,13 +104,13 @@
 
 \maketitle 
 
-\date{}
+%\date{}
 
-\vspace*{0.5cm}
+%\vspace*{0.5cm}
 
-\begin{abstract}
+%\begin{abstract}
 
-\end{abstract}
+%\end{abstract}
 
 \section{Introduction}\label{sec:intro}
 The heart contraction is triggered by an electrical potential that propagates along all the myocardium, the cardiac muscle. The heart itself is able to produce the electrical impulse that determines this contraction. This
@@ -121,7 +121,7 @@ Differently from skeletal muscle cells, the cardiomyocyte are able to autonomous
 \begin{figure}
 	\centering
 	\includegraphics[width=1\textwidth]{./Images/heart_activation.png}
-	\caption{Characteristic action potential of cardiomyocytes and (b) anatomy of the cardiac conduction system (picture taken from \cite{quarteroni2019}).}
+	\caption{The cardiac conduction system (a) and (b) the characteristic action potential of cardiomyocytes (picture taken from \cite{quarteroni2019}).}
 	\label{fig:heart}
 \end{figure}
 
@@ -130,7 +130,7 @@ Differently from skeletal muscle cells, the cardiomyocyte are able to autonomous
 The contraction of cardiac cells is initiated by an electrical activation due to an action potential (AP), a depolarizing transitory membrane current
 that raises the transmembrane potential of an excitable cell from its resting value ranging between -90 and -80 mV to slightly positive values, followed by a repolarizing current that returns the transmembrane potential to its resting value~\cite{franzone2014mathematical}. 
 
-At rest, the membrane potential is negative (around -90 mV), whereas when stimulated it reaches a positive value (around -20 mV) in a very short period (about 2 ms). After this depolarization, a plateau around 0 mV is observed that corresponds to the refractory period, see Figure~\ref{fig:heart}(b).
+At rest, the membrane potential is negative (around -90 mV), whereas when stimulated it reaches a positive value (around -20 mV) in a very short period (about 2 ms). After this depolarization, a plateau around 0 mV is observed corresponding to the refractory period, see Figure~\ref{fig:heart}(b).
 Then, the repolarization phase starts, which brings the potential back to
 the rest value allowing for a new excitation, see Figure~\ref{fig:heart}(b) \cite{quarteroni2019}. 
 
@@ -139,13 +139,13 @@ the resulting currents passing through the membrane. The most important
 channels are those of calcium, sodium and potassium. In particular, a fast
 inward sodium current is the main driver of rapid depolarization, a slow
 inward flux of extra-cellular calcium ions is the main agent behind the characteristic plateau appearing after the depolarization, whereas the outward
-potassium currents are responsible for the repolarization. The main phases of a typical cardiac action potential are displayed in Figure~\ref{fig:heart}(a) \cite{quarteroni2019,franzone2014mathematical}.
+potassium currents are responsible for the repolarization. The main phases of a typical cardiac AP are displayed in Figure~\ref{fig:heart}(a) \cite{quarteroni2019,franzone2014mathematical}.
 
 
 \section{Cardiac mathematical cell models}\label{sec:math}
 At the mathematical level, the AP is described by means of an ionic model, a system of ordinary differential equations (ODE) which models the ionic currents in the cells.
 
-There are three families of ionic models, featuring different levels of complexity and accuracy. The first family, the so-called reduced ionic models, only provide a description of the AP and disregard sub-cellular processes. One of the most celebrated reduced model for cardiac cells is the Aliev-Panfilov (A-P) ionic model \cite{aliev1996simple}. The second family of cardiac cell models is that of the so-called first-generation models. Unlike reduced models, they allow explicit description of the kinetics of different ionic currents. Among them, the Courtemanche-Ramirez-Nattel (CRN) is the most widely used mathematical model for modeling the human atrial AP \cite{courtemanche1998ionic}. Finally, we mention the third family of second-generation cardiac cell models, unlike first-generation models, provide a detailed description of many processes allowing for the study of drug action, for example (see \cite{quarteroni2019,franzone2014mathematical} for further details). 
+There are three families of ionic models, featuring different levels of complexity and accuracy. The first family, the so-called reduced ionic models, only provide a description of the AP and disregard sub-cellular processes. One of the most celebrated reduced model for cardiac cells is the Aliev-Panfilov (A-P) ionic model \cite{aliev1996simple}. The second family of cardiac cell models is that of the so-called first-generation models. Unlike reduced models, they allow explicit description of the kinetics of different ionic currents. Among them, the Courtemanche-Ramirez-Nattel (CRN) is the most widely used mathematical model for modeling the human atrial AP \cite{courtemanche1998ionic}. Finally, the third family of second-generation cardiac cell models, unlike first-generation models, provides a detailed description of many processes (see \cite{quarteroni2019,franzone2014mathematical} for further details). 
  
 \subsection{Aliev-Panfilov ionic model}\label{subsec:aliev}
 The A-P is a reduced ionic model that simulates the restitution property of cardiac tissue \cite{aliev1996simple}. It consists of two equations:
@@ -155,9 +155,8 @@ The A-P is a reduced ionic model that simulates the restitution property of card
 \tfrac{\partial v}{\partial t} &= \epsilon(u,v)\left[ -v -ku(u-a-1)\right]
 \end{cases},
 \end{equation*}
-where $\epsilon(u,v)=\epsilon_0+\tfrac{\mu_1 v}{u+\mu_2}$, with $k=8$, $a=0.15$, $\epsilon_0=0.002$, $\mu_1=0.2$ and $\mu_2=0.3$. The model involves dimensionless variables $u$, $v$ and $t$. The actual action potential $E$, in mV, and the time $T$, in ms, can be obtained with the formulae:
+where $\epsilon(u,v)=\epsilon_0+\tfrac{\mu_1 v}{u+\mu_2}$, with $k=8$, $a=0.15$, $\epsilon_0=0.002$, $\mu_1=0.2$ and $\mu_2=0.3$. The model involves dimensionless variables $u$, $v$ and $t$. The actual AP $E$, in mV, and the time $T$, in ms, can be obtained with the formulae:
 $$E[mV]=100u-80, \qquad T[ms]=12.9t .$$
-
 The model in compact form reads
 \begin{equation}
 \label{AP_compact}
@@ -166,9 +165,9 @@ The model in compact form reads
 where $\mathbf{w}=[u,v]$ and $$F(u,v)=\left[-ku(u-a)(u-1)-uv,\epsilon(u,v)\left[ -v -ku(u-a-1)\right]\right].$$
 
 \subsection{Courtemanche-Ramirez-Nattel ionic model}\label{subsec:crn}
-The CRN is the most widely used mathematical model for modeling the human atrial AP \cite{courtemanche1998ionic}. The CRN was developed using specific formulations of 21 currents based on data recorded from human atrial myocytes experiments (along with representations of pump, exchange, and background currents).
+The CRN is the most widely used mathematical model for modeling the human atrial AP \cite{courtemanche1998ionic}. The CRN was developed using specific formulations of twenty one currents based on data recorded from human atrial myocytes experiments (along with representations of pump, exchange, and background currents).
 
-The CRN consists of twenty one Ordinary Differential Equations (ODE):
+The CRN consists of twenty one ODE:
 \begin{equation}
 \label{crn}
 \begin{cases}
@@ -183,6 +182,7 @@ where $T_{HB}$ is the period of one heartbeat and $t^{st}_{in}$, $t^{st}_{end}$ 
 $$I_{ion}=I_{Na}+I_{K1}+I_{to}+I_{Kur}+I_{Kr}+I_{Ks}+I_{Ca,L}+I_{p,Ca}+I_{NaK}+I_{NaCa}+I_{b,Na}+I_{b,Ca},$$
 where for the specific definition of each term in $I_{ion}$ we refer to \cite{courtemanche1998ionic}. 
 
+\noindent
 The model \eqref{crn} in compact form reads
 \begin{equation}
 \label{crn_compact}
@@ -194,7 +194,7 @@ where $\mathbf{Y}=[V,\mathbf{c},\mathbf{y}]$ and $\mathbf{F}=\left[ \tfrac{-(I_{
 In the following section we detail the Python implementation for the A-P and CRN ionic models introduced in Section \ref{sec:math}. 
 
 \subsection{Aliev-Panfilov code}\label{subsec:python_ap}
-To numerically solve the AP model in Python we use the \verb|scipy.integrate| package using function \verb|odeint|.
+To numerically solve the AP model in Python we use the \verb|scipy.integrate| package using the function \verb|odeint|.
 
 \lstset{language=Python}
 \lstset{frame=lines}
@@ -246,7 +246,6 @@ t = np.linspace(0,20)
 # solve ODE
 y = odeint(model,y0,t)
 \end{lstlisting}
-
 Figure \ref{fig:ex_odeint}, produced by means of code (2), shows the result of code (1).
 
 \lstset{language=Python}
@@ -629,13 +628,12 @@ def F(t,y):
 	vF = np.array((Vfunc(t,y), Nafunc(y), Kfunc(y), Cafunc(y), Carelfunc(y), Caupfunc(y), hfunc(y), mfunc(y), jfunc(y), oafunc(y), oifunc(y), uafunc(y), uifunc(y), xrfunc(y), xsfunc(y), dfunc(y), ffunc(y), fcafunc(y), ufunc(y), vfunc(y), wfunc(y)));
 	return vF
 \end{lstlisting}
-
-Finally, The CRN model \eqref{crn_compact} is numerically solved by means of forward Euler method. Introducing the discrete times $t^n=n dt$  (where $dt=\frac{t_{end}-t_{0}}{n}$ with $t_0$, $t_{end}$ the initial and final times, respectively and $n \in \mathbb {N}_0^+$) and denoting $\mathbf{A}^{n}$ the time discretization of the generic vector variable $\mathbf{A}$, one step of the Euler method from $t_n=t_0 + ndt$ to $t_{n+1}=t_0 + (n+1)dt$ is: 
+Finally, the CRN model \eqref{crn_compact} is numerically solved by means of the forward Euler method. Introducing the discrete times $t^n=n dt$  (where $dt=\frac{t_{end}-t_{0}}{n}$ with $t_0$, $t_{end}$ the initial and final times, respectively and $n \in \mathbb {N}_0^+$) and denoting $\mathbf{A}^{n}$ the time discretization of the generic vector variable $\mathbf{A}$, one step of the Euler method from $t_n=t_0 + ndt$ to $t_{n+1}=t_0 + (n+1)dt$ is: 
 \begin{equation}
 \label{crn_time}
 \mathbf{Y}^{n+1}=\mathbf{Y}^{n}+dt\mathbf{F}^n.
 \end{equation}
-The time discretization \eqref{crn_time} is perfomed by means of code (4).
+The time discretization \eqref{crn_time} is perfomed by means of code (11).
 
 \lstset{language=Python}
 \lstset{frame=lines}
@@ -664,14 +662,16 @@ for i in tt[1:]:
 \end{lstlisting}
 
 \section{Numerical results}\label{sec:results}
+
 In this section we show the results obtained with the A-P and CRN codes fully detailed in Section \ref{sec:python}.
 
 \subsection{Aliev-Panfilov}\label{sec:results_ap}
+
 Figure \ref{fig:ap}, obtained by means of the plotter code (12), display the time trace of the AP (both in dimensional and adimensional forms), the gating variable and the phase diagram for the A-P ionic model.  
 
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=0.8\textwidth]{./Images/A-P.png}
+	\includegraphics[width=0.85\textwidth]{./Images/A-P.png}
 	\caption{Result of the A-P code.}
 	\label{fig:ap}
 \end{figure} 
@@ -724,6 +724,7 @@ plot.show()
 \subsection{Courtemanche-Ramirez-Nattel}\label{sec:results_ap}
 Figure \ref{fig:crn}, obtained by means of the plotter code (13), display the time trace of the AP and three concentrations (Sodium, Potassium and Calcium) of the CRN ionic model.  
 
+\newpage
 \lstset{language=Python}
 \lstset{frame=lines}
 \lstset{caption={CRN plotter}}
