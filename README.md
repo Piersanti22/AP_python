@@ -1,3 +1,3 @@
 # AP_python
 
-A Pyhton code for the Aliev-Panfilov ionic model. 
+Pyhton codes for the Aliev-Panfilov and the Courtemanche-Ramirez-Nattel ionic models. 
